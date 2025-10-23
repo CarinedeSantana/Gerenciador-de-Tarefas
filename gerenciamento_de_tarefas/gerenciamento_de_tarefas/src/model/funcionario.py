@@ -1,8 +1,8 @@
-from model.setor import Setor # Assume que 'setor.py' estará no mesmo pacote/diretório 'model'
+from model.setor import Setor 
 
 class Funcionario:
     def __init__(self, 
-                 matricula:str=None, # CORREÇÃO: Deve ser str
+                 matricula:str=None,
                  nome:str=None,
                  setor:Setor=None
                  ):
@@ -10,7 +10,7 @@ class Funcionario:
         self.set_nome(nome)
         self.set_setor(setor)
 
-    def set_matricula(self, matricula:str): # CORREÇÃO: Deve ser str
+    def set_matricula(self, matricula:str): 
         self.matricula = matricula
 
     def set_nome(self, nome:str):
@@ -19,7 +19,7 @@ class Funcionario:
     def set_setor(self, setor:Setor):
         self.setor = setor
 
-    def get_matricula(self) -> str: # CORREÇÃO: Deve ser str
+    def get_matricula(self) -> str: 
         return self.matricula
 
     def get_nome(self) -> str:
