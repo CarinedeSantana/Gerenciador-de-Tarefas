@@ -42,6 +42,7 @@ Siga os passos abaixo para configurar e rodar a aplicação.
 
 Navegue até o diretório raiz do projeto no terminal e instale as bibliotecas Python necessárias:
 pip install -r requirements.txt
+
 2. Inicialização do Banco de Dados (DDL e DML)
 Este script apaga, recria todas as tabelas e sequences e insere os dados de amostra:
 python create_tables_and_records.py
