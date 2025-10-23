@@ -1,5 +1,5 @@
 from datetime import date
-from model.funcionario import Funcionario # Assume que 'funcionario.py' estará no mesmo pacote/diretório 'model'
+from model.funcionario import Funcionario 
 
 class Tarefa:
     def __init__(self, 
