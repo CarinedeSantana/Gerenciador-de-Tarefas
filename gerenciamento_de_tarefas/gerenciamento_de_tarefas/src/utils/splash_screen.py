@@ -11,10 +11,10 @@ class SplashScreen:
         # Consultas de contagem de registros - fim
 
         # Nome(s) do(s) criador(es)
-        self.created_by = "Seu Nome Aqui" # Substitua com o seu nome
+        self.created_by = "Carine, Gustavo, Juan, Luisa, Victor" 
         self.professor = "Prof. M.Sc. Howard Roatti"
         self.disciplina = "Banco de Dados"
-        self.semestre = "2024/1" # Atualize o semestre
+        self.semestre = "2025/2"
 
     def get_total_setores(self):
         # Cria uma nova conexão com o banco
