@@ -31,7 +31,7 @@ class Controller_Funcionario:
         nome_funcionario = input("Nome do Funcionário (Novo): ")
 
         # Insere o registro
-        # Matrícula e Nome são strings, precisam de aspas simples no SQL
+      
         oracle.write(f"INSERT INTO LABDATABASE.FUNCIONARIO VALUES ('{matricula_funcionario}', '{nome_funcionario}', {setor.get_id()})")
         
         # Recupera os dados do novo funcionário criado
@@ -50,10 +50,10 @@ class Controller_Funcionario:
         oracle.connect()
 
         # Solicita ao usuário a matrícula do funcionário a ser alterado
-        matricula_funcionario = input("Matrícula do Funcionário que deseja atualizar: ") # CORREÇÃO: Lida como str
+        matricula_funcionario = input("Matrícula do Funcionário que deseja atualizar: ") 
 
         # Verifica se o funcionário existe na base de dados
-        if self.verifica_existencia_funcionario(oracle, matricula_funcionario): # CORREÇÃO: Invertida a lógica para verificar a NÃO EXISTÊNCIA
+        if self.verifica_existencia_funcionario(oracle, matricula_funcionario): 
             print(f"A Matrícula {matricula_funcionario} não existe.")
             return None
         
@@ -68,7 +68,7 @@ class Controller_Funcionario:
         novo_nome = input("Nome do Funcionário (Novo): ")
 
         # Atualiza o nome e o setor do funcionário existente
-        # Matrícula e Nome são strings, precisam de aspas
+        
         oracle.write(f"UPDATE LABDATABASE.FUNCIONARIO SET NOME = '{novo_nome}', ID_SETOR = {setor.get_id()} WHERE MATRICULA = '{matricula_funcionario}'")
         
         # Recupera os dados do funcionário atualizado
@@ -87,10 +87,10 @@ class Controller_Funcionario:
         oracle.connect()
 
         # Solicita ao usuário a matrícula do funcionário a ser excluído
-        matricula_funcionario = input("Matrícula do Funcionário que irá excluir: ") # CORREÇÃO: Lida como str
+        matricula_funcionario = input("Matrícula do Funcionário que irá excluir: ") 
 
         # Verifica se o funcionário existe na base de dados
-        if self.verifica_existencia_funcionario(oracle, matricula_funcionario): # CORREÇÃO: Invertida a lógica
+        if self.verifica_existencia_funcionario(oracle, matricula_funcionario): 
             print(f"A Matrícula {matricula_funcionario} não existe.")
             return None
             
@@ -107,9 +107,9 @@ class Controller_Funcionario:
         print("Funcionário Removido com Sucesso!")
         print(funcionario_excluido.to_string())
 
-    def verifica_existencia_funcionario(self, oracle:OracleQueries, matricula:str=None) -> bool: # CORREÇÃO: Recebe str
+    def verifica_existencia_funcionario(self, oracle:OracleQueries, matricula:str=None) -> bool: 
         # Recupera os dados do funcionário transformando em um DataFrame
-        # CORREÇÃO: Matrícula precisa de aspas no SQL
+       
         df_funcionario = oracle.sqlToDataFrame(f"SELECT MATRICULA, NOME, ID_SETOR FROM LABDATABASE.FUNCIONARIO WHERE MATRICULA = '{matricula}'")
         return df_funcionario.empty # Retorna True se a Matrícula NÃO existe
     
